@@ -21,7 +21,7 @@ namespace UI
     {
         private static readonly Dictionary<Type, PanelConfig> PanelConfigDict = new();
 
-        private static void AddPanelConfig(PanelConfig panelConfig)
+        public static void AddPanelConfig(PanelConfig panelConfig)
         {
             PanelConfigDict.Add(panelConfig.PanelType, panelConfig);
         }
