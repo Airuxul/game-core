@@ -1,52 +1,48 @@
 # Game Core (`com.air.game-core`)
 
-纯 C# 游戏基础库，**不依赖 Unity 引擎**，可在编辑器外或单元测试中复用。
+Pure C# utilities with **no Unity engine dependency** (`noEngineReferences`).
 
-## 功能
+## Modules
 
-| 模块 | 命名空间 | 说明 |
-|------|----------|------|
-| 单例 | `Air.GameCore` | 泛型 `Singleton<T>` |
-| 对象池 | `Air.GameCore` | `ObjectPool<T>`、`ListPool<T>`、`IPoolable` |
-| 状态机 | `Air.GameCore.StateMachine` | `StateMachine`、`State`、`StateTransition` |
-| 分层状态机 | `Air.GameCore.StateMachine.Layered` | `LayeredStateMachine`、多层级并行状态 |
+| Module | Namespace | Description |
+|--------|-----------|-------------|
+| Singleton | `Air.GameCore` | `Singleton<T>` |
+| Pool | `Air.GameCore` | static `ObjectPool<T>`, `ListPool<T>`, `IPoolable` |
+| State machine | `Air.GameCore.StateMachine` | `StateMachine`, `State`, `StateTransition` |
+| Layered FSM | `Air.GameCore.StateMachine.Layered` | hierarchical states |
 
-## 安装
+**Pool vs Unity:** `ObjectPool<T>` is for plain C# objects. Unity `GameObject` / `Component` pooling lives in `com.air.unity-game-core` (`PoolManager` / `UnityObjectPool`).
 
-```json
-"com.air.game-core": "file:../CustomPackages/packages/com.air.game-core"
-```
+## State machine
 
-## 状态机示例
+Avoid passing `this` before the machine exists. Prefer `Initialize` from a `StateMachine` subclass:
 
 ```csharp
 using Air.GameCore.StateMachine;
 
-public class IdleState : State
+public sealed class IdleState : State { }
+
+public sealed class GameStateMachine : StateMachine
 {
-    public override void Enter() { }
-    public override void Update(float deltaTime) { }
-    public override void Exit() { }
+    public GameStateMachine() => Initialize(new IdleState());
 }
 
-var machine = new StateMachine(new IdleState());
-machine.Tick(Time.deltaTime);
+var sm = new GameStateMachine();
+sm.Tick(0.016f);
 ```
 
-## 对象池示例
+Legacy constructor `StateMachine(State initial)` still works and calls `Initialize` internally.
+
+## Object pool
 
 ```csharp
 using Air.GameCore;
 
-var pool = new ObjectPool<MyClass>(() => new MyClass(), obj => obj.Reset());
-var item = pool.Get();
-pool.Release(item);
+ObjectPool<MyClass>.SetFactory(() => new MyClass());
+var item = ObjectPool<MyClass>.Get();
+ObjectPool<MyClass>.Return(item);
 ```
 
-## 依赖
+## Related
 
-无（见 `package.json` dependencies）。
-
-## 相关包
-
-- [Unity Game Core](../com.air.unity-game-core/README.md) — Unity 侧运行时基础设施。
+- [Unity Game Core](../com.air.unity-game-core/README.md)

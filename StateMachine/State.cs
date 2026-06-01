@@ -5,9 +5,18 @@ namespace Air.GameCore.StateMachine
         protected StateMachine Machine;
         protected State ActiveState => this;
 
+        protected State()
+        {
+        }
+
         protected State(StateMachine machine)
         {
-            Machine = machine;
+            Bind(machine);
+        }
+
+        internal void Bind(StateMachine machine)
+        {
+            Machine = machine ?? throw new System.ArgumentNullException(nameof(machine));
         }
 
         internal virtual void Enter()
@@ -25,19 +34,10 @@ namespace Air.GameCore.StateMachine
             OnUpdate(deltaTime);
         }
 
-        protected virtual void OnEnter()
-        {
-            throw new System.NotImplementedException();
-        }
+        protected virtual void OnEnter() { }
 
-        protected virtual void OnUpdate(float deltaTime)
-        {
-            throw new System.NotImplementedException();
-        }
+        protected virtual void OnUpdate(float deltaTime) { }
 
-        protected virtual void OnExit()
-        {
-            throw new System.NotImplementedException();
-        }
+        protected virtual void OnExit() { }
     }
 }

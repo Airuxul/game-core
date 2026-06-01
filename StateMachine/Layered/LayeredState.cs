@@ -8,12 +8,16 @@ namespace Air.GameCore.StateMachine.Layered
         public readonly LayeredState Parent;
         private LayeredState _activeChild;
         private new LayeredState ActiveState => _activeChild ?? this;
-        
+
         protected abstract LayeredState GetInitialState();
+
+        protected LayeredState(LayeredState parent)
+        {
+            Parent = parent;
+        }
 
         protected LayeredState(StateMachine machine, LayeredState parent) : base(machine)
         {
-            Machine = machine;
             Parent = parent;
         }
 
@@ -23,6 +27,7 @@ namespace Air.GameCore.StateMachine.Layered
             {
                 Parent._activeChild = this;
             }
+
             OnEnter();
             GetInitialState()?.Enter();
         }
