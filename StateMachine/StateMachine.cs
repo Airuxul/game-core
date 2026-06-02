@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace Air.GameCore.StateMachine
 {
@@ -7,6 +7,8 @@ namespace Air.GameCore.StateMachine
         protected IStateTransition Transition;
 
         private State _currentState;
+
+        protected State CurrentState => _currentState;
 
         private bool _isStarted;
 
@@ -63,5 +65,7 @@ namespace Air.GameCore.StateMachine
             Transition.ChangeState(from, to);
             _currentState = to;
         }
+
+        public void ChangeState(State to) => ChangeState(_currentState, to);
     }
 }

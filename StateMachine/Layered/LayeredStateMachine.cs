@@ -1,4 +1,4 @@
-using Air.GameCore.StateMachine;
+﻿using Air.GameCore.StateMachine;
 
 namespace Air.GameCore.StateMachine.Layered
 {

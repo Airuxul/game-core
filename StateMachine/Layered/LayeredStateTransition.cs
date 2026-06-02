@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Air.GameCore.StateMachine;
 
 namespace Air.GameCore.StateMachine.Layered

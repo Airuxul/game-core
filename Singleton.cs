@@ -1,4 +1,4 @@
-namespace Air.GameCore
+﻿namespace Air.GameCore
 {
     public abstract class Singleton<T> where T : class, new()
     {
