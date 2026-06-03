@@ -10,4 +10,4 @@ Pure GoF command / undo stack for gameplay logic. No HTTP, CLI, JSON, or Unity.
 
 CLI / HTTP invoke and deferred jobs live in `com.air.unity-connector` (`Air.UnityConnector.Invoke`, `.Job`).
 
-See [ARCHITECTURE.md](../../../docs/ARCHITECTURE.md) for where CLI and input live.
+See [ARCHITECTURE.md](../../../.cursor/rules/PACKAGE_ARCHITECTURE.md) for where CLI and input live.
