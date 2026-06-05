@@ -25,6 +25,7 @@ This file is the agent entrypoint for **this** Git repository (`com.air.game-cor
 |------|----------|
 | [README.md](../README.md) | English |
 | [README.zh-CN.md](../README.zh-CN.md) | Chinese — must stay in sync with English |
+| [TODO.zh-CN.md](../TODO.zh-CN.md) | Chinese backlog — IDs sync with [TODO.md](TODO.md) |
 
 ## Agent documentation (this repo)
 
@@ -33,6 +34,7 @@ This file is the agent entrypoint for **this** Git repository (`com.air.game-cor
 | [AGENTS.md](AGENTS.md) | This file |
 | [DOC_GOVERNANCE.md](DOC_GOVERNANCE.md) | Doc workflow; skills live in meta repo only |
 | [CHANGELOG_AGENT.md](CHANGELOG_AGENT.md) | Agent-side changelog |
+| [TODO.md](TODO.md) | Optimization backlog (existing features; meta [TODO_ROADMAP](https://github.com/Airuxul/AirUnityPackage/blob/main/docs/TODO_ROADMAP.md)) |
 | [../Command/DESIGN.md](../Command/DESIGN.md) | GoF command / undo (keep when editing Command/) |
 | [../Entity/DESIGN.md](../Entity/DESIGN.md) | Entity model (keep when editing Entity/) |
 
