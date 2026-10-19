@@ -43,6 +43,8 @@ AirUnityPackage 子模块路径：`packages/com.air.game-core` → 仓库 [game-
 | `Command/` | `Air.GameCore.Command` | `core-command` | GoF 执行/撤销 — 非 CLI |
 | `Entity/` | `Air.GameCore.Entity` | `core-entity` | GF 风格实体管理 |
 | `Serialization/` | `Air.GameCore.Serialization` | `core-serialization` | `IJsonSerializer`、`JsonHost` 契约 |
+| `Event/` | `Air.GameCore` | `core-foundation` | `EventManager`，同步和异步回调节点 |
+| `Time/` | `Air.GameCore` | `core-foundation` | 两级时间轮，真实/表现/私有时间，节点池 |
 
 设计说明：[Command/DESIGN.md](Command/DESIGN.md)、[Entity/DESIGN.md](Entity/DESIGN.md)。
 

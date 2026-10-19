@@ -43,6 +43,8 @@ Git submodule path in AirUnityPackage: `packages/com.air.game-core` → [game-co
 | `Command/` | `Air.GameCore.Command` | `core-command` | GoF execute/undo only — not CLI |
 | `Entity/` | `Air.GameCore.Entity` | `core-entity` | GF-style entity manager + logic |
 | `Serialization/` | `Air.GameCore.Serialization` | `core-serialization` | `IJsonSerializer`, `JsonHost` contract |
+| `Event/` | `Air.GameCore` | `core-foundation` | `EventManager`, sync and async callback nodes |
+| `Time/` | `Air.GameCore` | `core-foundation` | Two-level time wheel, real/visual/custom hosts, node pools |
 
 Module design notes: [Command/DESIGN.md](Command/DESIGN.md), [Entity/DESIGN.md](Entity/DESIGN.md).
 
